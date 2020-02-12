@@ -1,0 +1,46 @@
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++ -I../../common/inc  -m64  -Xcompiler -arch -Xcompiler x86_64  -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o asyncAPI.o -c asyncAPI.cu
+nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++   -m64  -Xcompiler -arch -Xcompiler x86_64  -Xlinker -rpath -Xlinker /Developer/NVIDIA/CUDA-8.0/lib  -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o asyncAPI asyncAPI.o
+nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+mkdir -p ../../bin/x86_64/darwin/release
+cp asyncAPI ../../bin/x86_64/darwin/release
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++ -I../../common/inc  -m64  -Xcompiler -arch -Xcompiler x86_64  -dc -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o cdpSimplePrint.o -c cdpSimplePrint.cu
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++   -m64  -Xcompiler -arch -Xcompiler x86_64  -Xlinker -rpath -Xlinker /Developer/NVIDIA/CUDA-8.0/lib  -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o cdpSimplePrint cdpSimplePrint.o  -lcudadevrt
+mkdir -p ../../bin/x86_64/darwin/release
+cp cdpSimplePrint ../../bin/x86_64/darwin/release
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++ -I../../common/inc  -m64  -Xcompiler -arch -Xcompiler x86_64  -dc -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o cdpSimpleQuicksort.o -c cdpSimpleQuicksort.cu
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++   -m64  -Xcompiler -arch -Xcompiler x86_64  -Xlinker -rpath -Xlinker /Developer/NVIDIA/CUDA-8.0/lib  -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o cdpSimpleQuicksort cdpSimpleQuicksort.o  -lcudadevrt
+mkdir -p ../../bin/x86_64/darwin/release
+cp cdpSimpleQuicksort ../../bin/x86_64/darwin/release
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++ -I../../common/inc  -m64  -Xcompiler -arch -Xcompiler x86_64  -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o clock.o -c clock.cu
+nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+/Developer/NVIDIA/CUDA-8.0/bin/nvcc -ccbin clang++   -m64  -Xcompiler -arch -Xcompiler x86_64  -Xlinker -rpath -Xlinker /Developer/NVIDIA/CUDA-8.0/lib  -gencode arch=compute_20,code=sm_20 -gencode arch=compute_30,code=sm_30 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_37,code=sm_37 -gencode arch=compute_50,code=sm_50 -gencode arch=compute_52,code=sm_52 -gencode arch=compute_60,code=sm_60 -gencode arch=compute_60,code=compute_60 -o clock clock.o
+nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+mkdir -p ../../bin/x86_64/darwin/release
+cp clock ../../bin/x86_64/darwin/release
+clang++ -I../../common/inc -I/Developer/NVIDIA/CUDA-8.0/include  -arch x86_64  -o clock.o -c clock.cpp
+clang++  -rpath /Developer/NVIDIA/CUDA-8.0/lib -L/Developer/NVIDIA/CUDA-8.0/lib -framework CUDA -o clock_nvrtc clock.o  -lnvrtc
+ld: framework not found CUDA
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [clock_nvrtc] Error 1
+make: *** [0_Simple/clock_nvrtc/Makefile.ph_build] Error 2
+
+
+bazel build -c opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
+
+ERROR: /Users/Luis/Developer/tools/tensorflow/tensorflow/python/BUILD:417:1: Executing genrule //tensorflow/python:functional_ops_pygenrule failed: bash failed: error executing command /bin/bash -c ... (remaining 1 argument(s) skipped): com.google.devtools.build.lib.shell.AbnormalTerminationException: Process terminated by signal 5.
+dyld: Library not loaded: @rpath/libcudart.8.0.dylib
+  Referenced from: /private/var/tmp/_bazel_Luis/b7786a35579dc2c9bce599edf4cc7819/execroot/tensorflow/bazel-out/host/bin/tensorflow/python/gen_functional_ops_py_wrappers_cc
+  Reason: image not found
+/bin/bash: line 1: 16159 Trace/BPT trap: 5       bazel-out/host/bin/tensorflow/python/gen_functional_ops_py_wrappers_cc @tensorflow/python/ops/hidden_ops.txt 0 > bazel-out/local_darwin-py3-opt/genfiles/tensorflow/python/ops/gen_functional_ops.py
+Target //tensorflow/tools/pip_package:build_pip_package failed to build
+Use --verbose_failures to see the command lines of failed build steps.
+INFO: Elapsed time: 1304.919s, Critical Path: 1279.66s
+
+
+
+
+PYTHON_BIN_PATH=$HOME/anaconda/bin/python CUDA_TOOLKIT_PATH="/usr/local/cuda" CUDNN_INSTALL_PATH="/usr/local/cuda" TF_UNOFFICIAL_SETTING=1 TF_NEED_CUDA=1 TF_CUDA_COMPUTE_CAPABILITIES="3.0" TF_CUDNN_VERSION="5" TF_CUDA_VERSION="8.0" TF_CUDA_VERSION_TOOLKIT=8.0 ./configure
+
+
+Main intuition was to choose a VGG type of architecture. The idea of convolution is to make a small filter, and go over different regions in the image and compute features (lines, colors, etc). After that, its fun. I added bypass connections (similar to resnet), because if the neual network wants, it can bypass high-level features, or can use only one type of features. But regardless, the process of neural entwork design and tuning is very handwavy, and you try bunch of things and see what works. Btw, this gives good intuition on convnets. https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721#.z97shvbuu

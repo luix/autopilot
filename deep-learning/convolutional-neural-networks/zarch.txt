@@ -1,0 +1,11 @@
+Using CNN with 2 convolutional layers with filter size 5, producting 32 filters in L1 and 64 filters in L2. Then I use 2 dense layers of 512 units each and finally a classification layer with softmax, I achieved 99% accuracy for Train and Validation set.
+
+[6:35]
+There are some dropouts not mentioned here.
+
+[6:35]
+The test accuracy is around 94%.
+
+
+Lachezar Bozhkov [7:22 AM]
+I use 256 as train_batch_size - and give your model some room to learn - try 256 units in fc1 and add fc2 - check if it got better
